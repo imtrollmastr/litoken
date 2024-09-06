@@ -32,13 +32,12 @@ function getEmailFromJWT(token) {
 }
 
 function handleCredentialResponse(response) {
-    document.cookie = "LiTokens = " + getEmailFromJWT(response.credential) + "|" + document.getElementById("tokenElement").innerText.split("Tokens: ")
     console.log("Credential: " + getCookie("LiTokens"))
     window.location.href="https://token.liquacious.org/"
 }
 
-function getTokens(cookie) {
-    var tokens = cookie.toString().split("|")[1]
-    console.log("tokens: " + tokens)
-    return tokens
+if (tokenElement.innerText == "") {
+    document.cookie = "LiTokens = 0"
+} else {
+    tokenElement.innerText = "Tokens: " + getCookie("LiTokens")
 }
