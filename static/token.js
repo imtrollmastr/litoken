@@ -36,7 +36,7 @@ function handleCredentialResponse(response) {
     window.location.href="https://token.liquacious.org/"
 }
 
-if (tokenElement.innerText == "") {
+if (getCookie("LiTokens") == "") {
     document.cookie = "LiTokens = 0"
 } else {
     tokenElement.innerText = "Tokens: " + getCookie("LiTokens")
