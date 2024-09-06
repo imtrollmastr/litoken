@@ -26,7 +26,6 @@
       // Initial call to display the time immediately
       updateTime();
     </script>
-    <br>
     <p id="tokenElement">Tokens: 0</p>
     <script>
         const tokenElement = document.getElementById("tokenElement")
@@ -49,7 +48,7 @@
             document.cookie = "LiTokens = 0"
         
         } else {
-            tokenElement.innerText = getCookie("LiTokens")
+            tokenElement.innerText = "Tokens: " + getCookie("LiTokens")
         }
     </script>
     <footer>
