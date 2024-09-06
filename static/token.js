@@ -36,6 +36,12 @@ function handleCredentialResponse(response) {
     window.location.href="https://token.liquacious.org/"
 }
 
+if (getCookie("student_email") == "") {
+    
+} else {
+    document.getElementById("googleWrapper").innerHTML = ""
+}
+
 if (getCookie("LiTokens") == "") {
     document.cookie = "LiTokens = 0"
 } else {
