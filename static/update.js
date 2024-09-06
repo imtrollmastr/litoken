@@ -1,5 +1,4 @@
-const tokenElement = document.getElementById("tokenElement")
-function getCookie(cname) {
+ function getCookie(cname) {
     let name = cname + "=";
     let decodedCookie = decodeURIComponent(document.cookie);
     let ca = decodedCookie.split(';');
