@@ -1,0 +1,64 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="https://liquacious.org/static/font.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+      .time {
+        margin: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <p id="time" class="time"></p>
+    <script>
+      const timeElement = document.getElementById("time");
+      function updateTime() {
+          const now = new Date();
+          const date = now.getDay() + " " + now.getMonth() + " " + now.getFullYear()
+          const hours = now.getHours().toString().padStart(2, "0");
+          const minutes = now.getMinutes().toString().padStart(2, "0");
+          const seconds = now.getSeconds().toString().padStart(2, "0");
+          const timeString = hours + ":" + minutes + ":" + seconds;
+          timeElement.textContent = date + " " + timeString;
+      }
+      // Call updateTime every second (1000 milliseconds)
+      setInterval(updateTime, 1000);
+      // Initial call to display the time immediately
+      updateTime();
+    </script>
+    <br>
+    <p id="tokenElement">Tokens: 0</p>
+    <script>
+        const tokenElement = document.getElementById("tokenElement")
+        function getCookie(cname) {
+            let name = cname + "=";
+            let decodedCookie = decodeURIComponent(document.cookie);
+            let ca = decodedCookie.split(';');
+            for(let i = 0; i <ca.length; i++) {
+                let c = ca[i];
+                while (c.charAt(0) == ' ') {
+                    c = c.substring(1);
+                }
+                if (c.indexOf(name) == 0) {
+                    return c.substring(name.length, c.length);
+                }
+            }
+            return "";
+        }
+        if (getCookie("LiTokens") == "") {
+            document.cookie = "LiTokens = 0"
+        
+        } else {
+            tokenElement.innerText = getCookie("LiTokens")
+        }
+    </script>
+    <footer>
+      <div>
+        <a href="#" style="color: black;">HELP</a>
+        <a href="#" style="color: black;">PRIVACY</a>
+        <a href="#" style="color: black;">TERMS</a>
+        <a href="#" style="color: black;">DO NOT SELL MY PERSONAL INFORMATION</a>
+      </div>
+    </footer>
+  </body>
+</html>
